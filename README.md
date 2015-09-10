@@ -23,21 +23,23 @@ Sonar can be run across source code using _maven_ or by using _sonar-runner_.
 ###Maven _config_
 To setup maven add the following section to your maven settings file
 The following example has the sonar server deployed on _sonarhost_ and a _mysql_ db installed on _sonardbhost_.
->```<profiles>
-.<profile>
-..<id>sonarRemote</id>
-..<activation>
-...<activeByDefault>true</activeByDefault>
-..</activation>
-..<properties>
-...<sonar.jdbc.url>jdbc:mysql://sonardbhost:3306/sonar</sonar.jdbc.url>
-...<sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
-...<sonar.jdbc.username>sonar</sonar.jdbc.username> 
-...<sonar.jdbc.password>sonar</sonar.jdbc.password>
-...<sonar.host.url>http://sonarhost:9000/</sonar.host.url>
-..</properties>
-.</profile>
-</profiles>```
+```
+<profiles>
+ <profile>
+  <id>sonarRemote</id>
+  <activation>
+   <activeByDefault>true</activeByDefault>
+  </activation>
+  <properties>
+   <sonar.jdbc.url>jdbc:mysql://sonardbhost:3306/sonar</sonar.jdbc.url>
+   <sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
+   <sonar.jdbc.username>sonar</sonar.jdbc.username> 
+   <sonar.jdbc.password>sonar</sonar.jdbc.password>
+   <sonar.host.url>http://sonarhost:9000/</sonar.host.url>
+  </properties>
+ </profile>
+</profiles>
+```
 ###Maven _invocation_
 The sonar maven plugin is invoked as follows:
 `maven sonar:sonar`
