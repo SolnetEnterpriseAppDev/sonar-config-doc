@@ -23,7 +23,7 @@ Sonar can be run across source code using _maven_ or by using _sonar-runner_.
 ###Maven _config_
 To setup maven add the following section to your maven settings file
 The following example has the sonar server deployed on _sonarhost_ and a _mysql_ db installed on _sonardbhost_.
->`<profiles>
+>```<profiles>
 .<profile>
 ..<id>sonarRemote</id>
 ..<activation>
@@ -37,7 +37,7 @@ The following example has the sonar server deployed on _sonarhost_ and a _mysql_
 ...<sonar.host.url>http://sonarhost:9000/</sonar.host.url>
 ..</properties>
 .</profile>
-</profiles>`
+</profiles>```
 ###Maven _invocation_
 The sonar maven plugin is invoked as follows:
 `maven sonar:sonar`
@@ -45,19 +45,21 @@ The following example shows invocation using a select profile in this case `sona
 `mvn -P sonarLocal sonar:sonar -Dsonar.tests=src/test/java`
 ###Sonar-runner _config_
 Sonar-runner requires runtime properties - these can be supplied by a properties file in the project
->`# must be unique in a given SonarQube instance`
-`sonar.projectKey=hard:amu`
-`# this is the name displayed in the SonarQube UI`
-`sonar.projectName=EMU`
-`sonar.projectVersion=1.0`
-`# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.`
-`# Since SonarQube 4.2, this property is optional if sonar.modules is set. `
-`# If not set, SonarQube starts looking for source code from the directory containing `
-`# the sonar-project.properties file.`
-`sonar.sources=.`
- `# Encoding of the source code. Default is default system encoding`
-`#sonar.sourceEncoding=UTF-8`
-`sonar.exclusions=CAS-1.3.0/**/*,cool-php-captcha-0.3/**/*,Smarty-3.1.15/**/*,templates_c/*,js/*,themes/**/*`
+```
+# must be unique in a given SonarQube instance
+sonar.projectKey=hard:amu
+# this is the name displayed in the SonarQube UI
+sonar.projectName=EMU
+sonar.projectVersion=1.0
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+# Since SonarQube 4.2, this property is optional if sonar.modules is set.
+# If not set, SonarQube starts looking for source code from the directory containing 
+# the sonar-project.properties file.
+sonar.sources=.
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8
+sonar.exclusions=CAS-1.3.0/**/*,cool-php-captcha-0.3/**/*,Smarty-3.1.15/**/*,templates_c/*,js/*,themes/**/*
+```
 ###Sonar-runner _invocation_
 Sonar-runner is invoked from the directory where the properties file is located.
 Simply by entering the command line:
